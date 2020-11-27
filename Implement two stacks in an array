@@ -1,0 +1,65 @@
+#include <iostream>
+#include <stdlib.h>
+using namespace std;
+#define n 6
+int stack[n];
+int top1=-1;
+int top2=(n/2)-1;
+void push1(int x)
+{
+    if(top1==(n/2)-1)
+    cout<<"Overflow Stack Value is "<<x<<endl;
+    else
+    {
+        top1++;
+        stack[top1]=x;
+    }
+}
+void push2(int x)
+{
+    if(top2==n-1)
+    cout<<"Overflow Stack2 Value is "<<x<<endl;
+    else
+    {
+        top2++;
+        stack[top2]=x;
+        
+    }
+}
+int pop1()
+{
+    
+    int x=-1;
+    x=stack[top1];
+    stack[top1]='\0';
+    top1--;
+    return x;
+}
+int pop2()
+{
+  
+    int x=-1;
+    x=stack[top2];
+    stack[top2]='\0';
+    top2--;
+    return x;
+}
+int main() 
+{
+ push1(4);
+ push2(7);
+ push2(8);
+ push1(2);
+ push2(89);
+ push1(100);
+ push1(120);
+ push2(200);
+ cout<<pop1();
+ cout<<endl<<pop2();
+	return 0;
+}
+************************************************************************************************
+Overflow Stack Value is 120
+Overflow Stack2 Value is 200
+100
+89
